@@ -7,8 +7,8 @@ import React from 'react';
    - works for components with only render method
    - function returns the jsx code
 */
-function ListContacts(props) {
-  return <ol className="contact-list">
+const ListContacts = (props) => (
+  <ol className="contact-list">
     {props.contacts.map(contact => (
       <li key={contact.id} className="contact-list-item">
         <div className="contact-avatar" style={{
@@ -25,6 +25,6 @@ function ListContacts(props) {
       </li>
     ))}
   </ol>
-}
+);
 
 export default ListContacts;

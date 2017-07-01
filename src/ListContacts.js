@@ -2,11 +2,11 @@ import React from 'react';
 
 
 /* stateless functional component
-   - Only a function
-   - props is first argument
-   - works for components with only render method
-   - function returns the jsx code
-*/
+ - Only a function
+ - props is first argument
+ - works for components with only render method
+ - function returns the jsx code
+ */
 const ListContacts = (props) => (
   <ol className="contact-list">
     {props.contacts.map(contact => (
@@ -19,7 +19,7 @@ const ListContacts = (props) => (
           <p>{contact.name}</p>
           <p>{contact.email}</p>
         </div>
-        <button className="contact-remove">
+        <button onClick={() => props.onDeleteContact(contact)} className="contact-remove">
           remove
         </button>
       </li>

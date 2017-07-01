@@ -6,6 +6,7 @@ import sortBy from 'sort-by';
 
 
 class ListContacts extends Component {
+  //noinspection JSUnusedGlobalSymbols
   static propTypes = {
     contacts: PropTypes.array.isRequired,
     onDeleteContact: PropTypes.func.isRequired
@@ -17,6 +18,10 @@ class ListContacts extends Component {
 
   updateQuery = (query) => {
     this.setState({query: query.trim()});
+  };
+
+  resetQuery = () => {
+    this.setState({query: ''})
   };
 
   render() {
@@ -42,6 +47,12 @@ class ListContacts extends Component {
                  value={query}
                  onChange={(event) => this.updateQuery(event.target.value)}/>
         </div>
+        { showingContacts.length !== contacts.length && (
+          <div className="showing-contacts">
+            <span>Showing {showingContacts.length} of {contacts.length}</span>
+            <button onClick={this.resetQuery}>Show all</button>
+          </div>
+        )}
         <ol className="contact-list">
           {showingContacts.map(contact => (
             <li key={contact.id} className="contact-list-item">

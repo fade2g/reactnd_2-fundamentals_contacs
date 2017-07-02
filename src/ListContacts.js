@@ -10,7 +10,6 @@ class ListContacts extends Component {
   static propTypes = {
     contacts: PropTypes.array.isRequired,
     onDeleteContact: PropTypes.func.isRequired,
-    onNavigate: PropTypes.func.isRequired
   };
 
   state = {
@@ -26,7 +25,7 @@ class ListContacts extends Component {
   };
 
   render() {
-    const {contacts, onDeleteContact, onNavigate} = this.props;
+    const {contacts, onDeleteContact} = this.props;
     const {query} = this.state;
 
     let showingContacts;

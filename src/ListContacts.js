@@ -9,7 +9,8 @@ class ListContacts extends Component {
   //noinspection JSUnusedGlobalSymbols
   static propTypes = {
     contacts: PropTypes.array.isRequired,
-    onDeleteContact: PropTypes.func.isRequired
+    onDeleteContact: PropTypes.func.isRequired,
+    onNavigate: PropTypes.func.isRequired
   };
 
   state = {
@@ -25,7 +26,7 @@ class ListContacts extends Component {
   };
 
   render() {
-    const {contacts, onDeleteContact} = this.props;
+    const {contacts, onDeleteContact, onNavigate} = this.props;
     const {query} = this.state;
 
     let showingContacts;
@@ -46,6 +47,7 @@ class ListContacts extends Component {
                  placeholder="Query contacts"
                  value={query}
                  onChange={(event) => this.updateQuery(event.target.value)}/>
+          <a href="#create" onClick={() => onNavigate()} className="add-contact">Add contact</a>
         </div>
         { showingContacts.length !== contacts.length && (
           <div className="showing-contacts">

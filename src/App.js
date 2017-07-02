@@ -16,7 +16,9 @@ class App extends Component {
   removeContact = (contact) => {
     this.setState((state) => ({
       contacts: state.contacts.filter((currentContact) => currentContact.id !== contact.id)
-    }))
+    }));
+
+    ContactsAPI.remove(contact);  // remove from backend as well
   };
 
   render() {
